@@ -27,7 +27,9 @@ public class SuperArray
 	String retStr = "[";
 	for (int x : _data)
 	    retStr += x + ",";
-	return retStr.substring(0, retStr.length() - 1) + "]";
+	if (retStr.length() > 1)
+	    retStr = retStr.substring(0, retStr.length() - 1);
+	return retStr + "]";
     }
 
     //double capacity of this instance of SuperArray 
@@ -36,6 +38,7 @@ public class SuperArray
 	int[] newArr = new int[_data.length * 2];
 	for (int x = 0; x < _data.length; x += 1)
 	    newArr[x] = _data[x];
+	_data = newArr;
     }
 
     //accessor method -- return value at specified index
